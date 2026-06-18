@@ -72,6 +72,7 @@ function updateTodayProgress() {
 
   progressBar.style.width = `${percentage}%`;
   progressPercent.textContent = `${percentage}%`;
+  updateProgressCardColour(percentage);
 
   const openTodayTasks = todayTasks.filter(task => !task.completed).length;
   if (openTodayTasks > 0) {
@@ -160,6 +161,31 @@ function populateDemoTasks() {
   ];
   saveTasks();
   renderTasks();
+}
+
+function updateProgressCardColour(percentage) {
+
+    const progressCard = document.querySelector('.progress-card');
+
+    let colour;
+
+    if (percentage === 0) {
+        colour = '#ef4444'; // red
+    }
+    else if (percentage < 40) {
+        colour = '#f97316'; // orange
+    }
+    else if (percentage < 70) {
+        colour = '#f59e0b'; // amber
+    }
+    else if (percentage < 100) {
+        colour = '#84cc16'; // light green
+    }
+    else {
+        colour = '#22c55e'; // green
+    }
+
+    progressCard.style.backgroundColor = colour;
 }
 
 function clearTasks() {
