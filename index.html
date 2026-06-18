@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Task Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card">
+      <div>
+        <p class="eyebrow">Simple productivity app</p>
+        <h1>Daily Task Manager</h1>
+        <p class="subtitle">Add tasks with due dates, spot what is due today, and track your daily progress.</p>
+      </div>
+      <div class="progress-card" aria-label="Today's task progress">
+        <span id="progressPercent">0%</span>
+        <small>today complete</small>
+      </div>
+    </section>
+
+    <section id="todayAlert" class="today-alert" aria-live="polite"></section>
+
+    <section class="panel">
+      <div class="section-header">
+        <div>
+          <h2>Add a task</h2>
+          <p class="panel-note">Give the task a due date so the app can prioritise today and upcoming work.</p>
+        </div>
+      </div>
+      <form id="taskForm" class="task-form">
+        <input id="taskInput" type="text" placeholder="e.g. Prepare interview notes" aria-label="Task name" required />
+        <input id="dueDateInput" type="date" aria-label="Task due date" required />
+        <button type="submit">Add Task</button>
+      </form>
+      <div class="demo-actions" aria-label="Demo actions">
+        <button id="sampleTasksBtn" type="button" class="secondary-button">Populate demo tasks</button>
+        <button id="clearTasksBtn" type="button" class="danger-button">Clear all tasks</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-header">
+        <h2>Task list</h2>
+        <p id="taskSummary">No tasks yet</p>
+      </div>
+      <div class="progress-track" aria-hidden="true">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+      <div id="dateGroups" class="date-groups"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
